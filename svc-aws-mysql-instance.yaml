@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+ name: aws-mysql-instance
+spec:
+ type: ClusterIP
+ ports:
+ - name: metrics
+   port: 9104
+   targetPort: 9104

@@ -1,0 +1,10 @@
+kind: Endpoints
+apiVersion: v1
+metadata:
+ name: aws-mysql-instance
+subsets:
+- addresses:
+    - ip: 13.233.238.173
+  ports:
+    - name: metrics
+      port: 9104

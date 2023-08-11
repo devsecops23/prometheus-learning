@@ -1,0 +1,24 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  annotations:
+    meta.helm.sh/release-name: monitoring
+    meta.helm.sh/release-namespace: default
+  labels:
+    app: nginx
+  name: monitoring-my-nginx
+  namespace: default
+spec:
+  endpoints:
+  - honorLabels: true
+    path: /metrics
+    port: metrics
+    scheme: http
+    scrapeTimeout: 30s
+  jobLabel: monitoring
+  namespaceSelector:
+    matchNames:
+    - default
+  selector:
+    matchLabels:
+      app: nginx
